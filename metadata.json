@@ -1,0 +1,10 @@
+{
+  "name": "EduPlan Studio",
+  "description": "A professional AI-powered lesson planning suite for teachers featuring IGCSE, IBMYP, and IBDP support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "AI Lesson Generation",
+    "Syllabus Management",
+    "Multi-curriculum Support"
+  ]
+}

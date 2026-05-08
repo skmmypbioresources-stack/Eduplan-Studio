@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "LessonPlanSet": {
+      "title": "Lesson Plan Set",
+      "description": "A set of lesson plans for a specific curriculum, subject, and topic.",
+      "type": "object",
+      "properties": {
+        "curriculum": { "type": "string" },
+        "subject": { "type": "string" },
+        "year": { "type": "string" },
+        "unit": { "type": "string" },
+        "topic": { "type": "string" },
+        "lessons": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["curriculum", "subject", "year", "unit", "topic", "lessons", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "lessonPlans/{planId}": {
+      "schema": "LessonPlanSet",
+      "description": "Collection of published lesson plans accessible by students."
+    }
+  }
+}

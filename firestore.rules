@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /lessonPlans/{planId} {
+      allow read: if true;
+      allow create, update: if request.resource.data.keys().hasAll(['curriculum', 'subject', 'year', 'unit', 'topic', 'lessons', 'updatedAt'])
+                           && request.resource.data.lessons is list
+                           && request.resource.data.topic is string
+                           && request.resource.data.topic.size() <= 200;
+      allow delete: if true;
+    }
+  }
+}
